@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color-Border Form</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #95adac71; /* Silver page background */
+      font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-box {
+      position: relative;
+      background-color: #000000;
+      padding: 40px;
+      width: 400px;
+      color: white;
+      border-radius: 12px;
+      /* thin rainbow gradient border */
+      border: 2px solid transparent;
+      border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .required::after {
+      content: " *";
+      color: red;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 8px 2px;
+      font-size: 14px;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      background: transparent;
+      color: white;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:hover,
+    input[type="tel"]:hover,
+    input[type="email"]:hover,
+    textarea:hover,
+    select:hover,
+    input[type="text"]:focus,
+    input[type="tel"]:focus,
+    input[type="email"]:focus,
+    textarea:focus,
+    select:focus {
+      border-bottom: 2px solid hotpink;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 60px;
+    }
+
+    .gender-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .gender-options label {
+      font-weight: normal;
+    }
+
+    input[type="radio"] {
+      margin-right: 6px;
+    }
+
+    input[type="submit"] {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #65ee4d;
+      box-shadow: 0 0 10px rgba(255,20,147,0.7);
+    }
+
+    /* Autofill fix */
+    input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px #444 inset;
+      -webkit-text-fill-color: white !important;
+    }
+  </style>
+</head>
+<body>
+    <form class="form-box" action="thankyou.html" method="GET">
+  <form class="form-box">
+    <h2>User Deatils Form</h2>
+
+    <label for="fullname" class="required">Full Name</label>
+    <input type="text" id="fullname" name="fullname" required>
+
+    <label for="contact" class="required">Contact Number</label>
+    <input type="tel" id="contact" name="contact" required>
+
+    <label for="address" class="required">Address</label>
+    <input type="text" id="address" name="address" required>
+
+    <label for="company" class="required">Company Name</label>
+    <input type="text" id="company" name="company" required>
+
+    <label for="email" class="required">Email Address</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="department" class="required">Department</label>
+    <select id="department" name="department" required>
+        <option value="HR" style="color: #ff4d4d;">HR</option>
+        <option value="Sales" style="color: #1e90ff;">Sales</option>
+        <option value="Development" style="color: #32cd32;">Development</option>
+        <option value="Marketing" style="color: #ff8c00;">Marketing</option>
+        <option value="Others" style="color: #9370db;">Others</option>
+    </select>
+
+    <label class="required">Gender</label>
+    <div class="gender-options">
+      <label><input type="radio" name="gender" value="Male" required> Male</label>
+      <label><input type="radio" name="gender" value="Female"> Female</label>
+      <label><input type="radio" name="gender" value="Prefer not to say"> Prefer not to say</label>
+    </div>
+
+    <input type="submit" value="Submit">
+    
+  </form>
+
+</body>
+</html>
